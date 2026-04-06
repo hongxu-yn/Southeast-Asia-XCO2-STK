@@ -1,6 +1,5 @@
 *.nc
 *.csv
-data/cams/*
 data/reconstructed_dataset/*
 output/reconstructed_dataset/*
 data/Satellite/step*/*
