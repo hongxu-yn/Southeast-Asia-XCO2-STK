@@ -4,3 +4,8 @@ data/reconstructed_dataset/*
 output/reconstructed_dataset/*
 data/Satellite/step*/*
 !.gitkeep
+
+!data/Satellite/step01_QA_Control/
+!data/Satellite/step01_QA_Control/**
+!data/Satellite/step01_QA_Control/
+!data/Satellite/step01_QA_Control/**
