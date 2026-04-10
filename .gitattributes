@@ -1,4 +1,0 @@
-data/Satellite/step03_Keeling_curve/*.nc filter=lfs diff=lfs merge=lfs -text
-data/cams/*.nc filter=lfs diff=lfs merge=lfs -text
-*.nc filter=lfs diff=lfs merge=lfs -text
-oco2_xco2_month_2015_2024_stk_SEA.nc filter=lfs diff=lfs merge=lfs -text
