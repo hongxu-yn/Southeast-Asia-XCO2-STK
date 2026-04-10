@@ -1,93 +1,57 @@
-# Variable description
+# Reproducibility
 
-This document describes the main dimensions, coordinates, variables, and metadata of the reconstructed XCO2 dataset provided in this repository.
+This document describes how to reproduce the main dataset and results provided in this repository.
 
-## Dataset file
+## 1. Install dependencies
 
-Main dataset file:
+Install the required Python packages listed in `requirements.txt`.
 
-- `output/oco2_xco2_month_2015_2024_stk_SEA.nc`
+```bash
+pip install -r requirements.txt
+````
 
-## Dataset summary
+## 2. Prepare the source data
 
-This dataset is a high-resolution reconstructed monthly XCO2 product generated using a background-constrained local spatiotemporal kriging (STK) method with CAMS background fields.
+Some raw source datasets are not fully redistributed in this repository because of their large file size and the access policies of the original data providers.
 
-## Dimensions
+Users should obtain the required source data from the official providers before running the workflow.
 
-### `time`
-Monthly time dimension of the dataset.
+### Required source datasets
 
-- Type: `datetime64[ns]`
-- Size: 120
-- Description: monthly timestamps of the reconstructed XCO2 fields from January 2015 to December 2024
+* **OCO-2/OCO-3 Lite products** — NASA GES DISC
+* **CAMS greenhouse gas inversion product** — Copernicus Atmosphere Data Store (ADS)
+* **TCCON observations**
+* **WDCGG observations**
 
-### `lat`
-Latitude dimension of the dataset.
+### Suggested local directories
 
-- Type: `float64`
-- Size: 491
-- Unit: degrees north
-- Range: -16.0 to 33.0
-- Description: latitude coordinates of the regular grid
+After downloading, the source data are recommended to be placed in:
 
-### `lon`
-Longitude dimension of the dataset.
+* `data/cams/raw`
+* `data/ground_obs/TCCON/raw`
+* `data/ground_obs/WDCGG/raw`
+* `data/Satellite/raw/oco2`
+* `data/Satellite/raw/oco3`
 
-- Type: `float64`
-- Size: 611
-- Unit: degrees east
-- Range: 87.0 to 148.0
-- Description: longitude coordinates of the regular grid
+## 3. Run the workflow
 
-## Coordinates
+Run the notebooks in the following order:
 
-### `time`
-- Coordinate type: temporal coordinate
-- Description: monthly time stamps from January 2015 to December 2024
+1. `src/step01_data_preprocessing.ipynb`
+2. `src/step02_stk_reconstruction.ipynb`
+3. `src/step03_technical_validation.ipynb`
+4. `src/step04_spatiotemporal_patterns.ipynb`
 
-### `lat`
-- Coordinate type: spatial coordinate
-- Description: latitude values on a 0.1° grid
+## 4. Main outputs
 
-### `lon`
-- Coordinate type: spatial coordinate
-- Description: longitude values on a 0.1° grid
+The main outputs are stored in:
 
-## Data variable
+* `output/oco2_xco2_month_2015_2024_stk_SEA.nc`
+* `output/Validation/`
+* `output/trend/`
 
-### `xco2`
-Column-averaged dry-air mole fraction of atmospheric carbon dioxide.
+## 5. Notes
 
-- Dimensions: `(time, lat, lon)`
-- Type: `float32`
-- Unit: ppm
-- Description: reconstructed monthly XCO2 field generated using STK with CAMS background constraints
-
-## Temporal coverage
-
-- Start time: 2015-01-01
-- End time: 2024-12-01
-- Temporal resolution: monthly
-
-## Spatial coverage
-
-- Longitude range: 87.0°E to 148.0°E
-- Latitude range: 16.0°S to 33.0°N
-- Spatial resolution: 0.1° × 0.1°
-
-## Global attributes
-
-### `description`
-High-resolution XCO2 reconstructed using STK and CAMS background fields.
-
-### `creation_date`
-Dataset creation time recorded in the NetCDF file metadata.
-
-- Value in current file: `2026-03-29 06:56:42`
-
-## Notes
-
-- The dataset is stored in NetCDF format.
-- The main variable in the current version is `xco2`.
-- Coordinate names are `time`, `lat`, and `lon`.
-- Users should refer to the file metadata and repository documentation when using later versions of the dataset, as metadata entries may be updated in future releases.
+* Users should follow the data-use and citation requirements of the original data providers.
+* Local file paths in the notebooks may need to be adjusted depending on the computing environment.
+* The `output/` directory contains the reconstructed dataset, validation outputs, and trend analysis results.
