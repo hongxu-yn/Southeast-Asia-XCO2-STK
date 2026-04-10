@@ -10,98 +10,51 @@ Install the required Python packages listed in `requirements.txt`.
 pip install -r requirements.txt
 ````
 
-## 2. Prepare external data
+## 2. Prepare the source data
 
-Prepare the external source data required for running the workflow.
+Some raw source datasets are not fully redistributed in this repository because of their large file size and the access policies of the original data providers.
 
-Some raw input datasets are not distributed with this repository because of their large file size and the access policies of the original data providers. Users should obtain these datasets from the official sources before running the notebooks.
+Users should obtain the required source data from the official providers before running the workflow.
 
-The main external source data include:
+### Required source datasets
 
-* OCO-2 Level 2 Lite Full Physics XCO2 product
-* OCO-3 Level 2 Lite Full Physics XCO2 product
+* **OCO-2/OCO-3 Lite products** — NASA GES DISC
+* **CAMS greenhouse gas inversion product** — Copernicus Atmosphere Data Store (ADS)
+* **TCCON observations**
+* **WDCGG observations**
 
-These external datasets should be prepared locally before running the workflow.
+### Suggested local directories
 
-## 3. Repository data organization
+After downloading, the source data are recommended to be placed in:
 
-The repository currently includes the following main directories:
-
-* `data/cams/`: CAMS background XCO2 data
-* `data/ground_obs/`: ground-based observations used for validation, including TCCON and WDCGG data
-* `data/Satellite/step01_QA_Control/`: quality-controlled OCO-2 and OCO-3 tabular files
-* `data/Satellite/step02_grid/`: gridded daily OCO-2 and OCO-3 XCO2 data
-* `data/Satellite/step03_Keeling_curve/`: monthly adjusted OCO-2 and OCO-3 XCO2 data
-* `output/`: reconstructed dataset, trend analysis results, and validation outputs
-* `docs/`: figures and supplementary documentation
-* `src/`: main processing notebooks
-
-## 4. Run data preprocessing
-
-Run `src/step01_data_preprocessing.ipynb` to perform the preprocessing of satellite observations.
-
-This step mainly includes:
-
-* quality control of OCO-2 and OCO-3 observations
-* gridding of satellite observations
-* monthly adjustment based on the CAMS background time series
-
-Main outputs of this step are stored in:
-
+* `data/cams/`
+* `data/ground_obs/TCCON/`
+* `data/ground_obs/WDCGG/`
 * `data/Satellite/step01_QA_Control/`
 * `data/Satellite/step02_grid/`
 * `data/Satellite/step03_Keeling_curve/`
 
-## 5. Run STK reconstruction
+## 3. Run the workflow
 
-Run `src/step02_stk_reconstruction.ipynb` to reconstruct the monthly 0.1° XCO2 dataset using the background-constrained local spatiotemporal kriging method.
-
-Main output of this step:
-
-* `output/oco2_xco2_month_2015_2024_stk_SEA.nc`
-
-## 6. Run technical validation
-
-Run `src/step03_technical_validation.ipynb` to evaluate the reconstructed dataset against reference observations.
-
-This step includes validation against:
-
-* OCO-3
-* TCCON
-* WDCGG
-
-Main outputs of this step are stored in:
-
-* `output/Validation/`
-
-## 7. Run spatiotemporal pattern analysis
-
-Run `src/step04_spatiotemporal_patterns.ipynb` to generate the main figures and statistical summaries of the reconstructed XCO2 dataset.
-
-This step mainly includes:
-
-* regional mean time series analysis
-* spatial distribution of multi-year mean XCO2
-* spatial distribution of linear change rates
-
-Main outputs of this step are stored in:
-
-* `output/trend/`
-
-## 8. Recommended execution order
-
-To reproduce the main dataset and results, the notebooks should be run in the following order:
+Run the notebooks in the following order:
 
 1. `src/step01_data_preprocessing.ipynb`
 2. `src/step02_stk_reconstruction.ipynb`
 3. `src/step03_technical_validation.ipynb`
 4. `src/step04_spatiotemporal_patterns.ipynb`
 
-## 9. Notes
+## 4. Main outputs
 
-Before running the workflow, users may need to update local file paths in the notebooks according to their own computing environment.
+The main outputs are stored in:
 
-Because different computing environments may use different directory structures, some path variables may need to be modified manually.
+* `output/oco2_xco2_month_2015_2024_stk_SEA.nc`
+* `output/Validation/`
+* `output/trend/`
 
-The final reconstructed dataset, validation outputs, and trend analysis results are stored in the `output/` directory.
+## 5. Notes
+
+* Users should follow the data-use and citation requirements of the original data providers.
+* Local file paths in the notebooks may need to be adjusted depending on the computing environment.
+* The `output/` directory contains the reconstructed dataset, validation outputs, and trend analysis results.
+
 
