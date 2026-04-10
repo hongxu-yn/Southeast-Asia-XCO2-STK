@@ -177,8 +177,8 @@ This GitHub repository mainly provides the processing notebooks, documentation, 
 
 The reconstructed dataset was evaluated against independent **TCCON** observations.
 
-* **Hefei**: (R^2 = 0.981), (RMSE = 1.27\ \mathrm{ppm})
-* **Burgos**: (R^2 = 0.981), (RMSE = 0.69\ \mathrm{ppm})
+* **Hefei**: $R^2 = 0.981, RMSE = 1.27\ \mathrm{ppm}$
+* **Burgos**: $R^2 = 0.981, RMSE = 0.69\ \mathrm{ppm}$
 
 Additional validation against OCO-3 and WDCGG is also included in the repository outputs.
 
