@@ -105,12 +105,6 @@ Southeast-Asia-XCO2-STK/
 ````
 
 * `src/`: main notebooks for data preprocessing, STK reconstruction, technical validation, and spatiotemporal pattern analysis.
-  ## Open notebooks in Colab
-
-- [Step 1: Data preprocessing](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step01_data_preprocessing.ipynb)
-- [Step 2: STK reconstruction](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step02_stk_reconstruction.ipynb)
-- [Step 3: Technical validation](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step03_technical_validation.ipynb)
-- [Step 4: Spatiotemporal patterns](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step04_spatiotemporal_patterns.ipynb)
 * `data/cams/`: CAMS background XCO2 data used in the reconstruction workflow.
 * `data/ground_obs/`: ground-based observations used for validation, including TCCON and WDCGG datasets.
 * `data/Satellite/step01_QA_Control/`: quality-controlled OCO-2 and OCO-3 tabular files.
@@ -156,12 +150,17 @@ After downloading the required data, users should place them in the appropriate 
 
 ### 4. Run the workflow
 
-The notebooks should be run in the following order:
+The main notebooks should be run in the following order:
 
-1. `src/step01_data_preprocessing.ipynb`
-2. `src/step02_stk_reconstruction.ipynb`
-3. `src/step03_technical_validation.ipynb`
-4. `src/step04_spatiotemporal_patterns.ipynb`
+1. [`step01_data_preprocessing.ipynb`](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step01_data_preprocessing.ipynb)
+2. [`step02_stk_reconstruction.ipynb`](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step02_stk_reconstruction.ipynb)
+3. [`step03_technical_validation.ipynb`](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step03_technical_validation.ipynb)
+4. [`step04_spatiotemporal_patterns.ipynb`](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step04_spatiotemporal_patterns.ipynb)
+
+These notebooks can be opened directly in Google Colab using the links above.
+
+Detailed workflow instructions are provided in [`docs/reproducibility.md`](docs/reproducibility.md).
+
 
 Detailed instructions are provided in [`docs/reproducibility.md`](docs/reproducibility.md).
 
@@ -182,10 +181,11 @@ This GitHub repository mainly provides the processing notebooks, documentation, 
 The reconstructed dataset was evaluated against independent **TCCON** observations.
 * **Burgos**: $R^2 = 0.981, RMSE = 0.69\ \mathrm{ppm}$
 * **Hefei**: $R^2 = 0.981, RMSE = 1.27\ \mathrm{ppm}$
-### Figure 3. STK reconstruction validation against TCCON 
-<img src="docs/validation_tccon_cams_stk.png" width="600" alt="Study Area">
-Additional validation against OCO-3 and WDCGG is also included in the repository outputs.
+  
+<img src="docs/validation_tccon_cams_stk.png" width="700" alt="Validation against TCCON observations">
+Comparison of CAMS and STK-reconstructed XCO2 against TCCON observations at the Burgos and Hefei sites.
 
+Additional validation against OCO-3 and WDCGG is also included in the repository outputs.
 ---
 
 ## 📘 Documentation
