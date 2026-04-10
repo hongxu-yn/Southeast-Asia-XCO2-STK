@@ -1,3 +1,4 @@
+````markdown
 # Reproducibility
 
 This document describes how to reproduce the main dataset and results provided in this repository.
@@ -21,19 +22,20 @@ The main external source data include:
 * OCO-2 Level 2 Lite Full Physics XCO2 product
 * OCO-3 Level 2 Lite Full Physics XCO2 product
 
-These external datasets should be downloaded and placed in the appropriate local directories before starting the workflow.
+These external datasets should be prepared locally before running the workflow.
 
 ## 3. Repository data organization
 
-The repository includes the following categories of data and outputs:
+The repository currently includes the following main directories:
 
-* `data/cams/`: CAMS background XCO2 data used in the reconstruction workflow
-* `data/ground_obs/`: ground-based observations used for technical validation, including TCCON and WDCGG data
-* `data/intermediate/`: intermediate files generated during preprocessing, gridding, and monthly adjustment
-* `output/dataset/`: final reconstructed monthly XCO2 dataset
-* `output/validation/`: matched validation results against OCO-3, TCCON, and WDCGG
-* `output/trend/`: trend analysis results
-* `output/figures/`: generated figures
+* `data/cams/`: CAMS background XCO2 data
+* `data/ground_obs/`: ground-based observations used for validation, including TCCON and WDCGG data
+* `data/Satellite/step01_QA_Control/`: quality-controlled OCO-2 and OCO-3 tabular files
+* `data/Satellite/step02_grid/`: gridded daily OCO-2 and OCO-3 XCO2 data
+* `data/Satellite/step03_Keeling_curve/`: monthly adjusted OCO-2 and OCO-3 XCO2 data
+* `output/`: reconstructed dataset, trend analysis results, and validation outputs
+* `docs/`: figures and supplementary documentation
+* `src/`: main processing notebooks
 
 ## 4. Run data preprocessing
 
@@ -47,9 +49,9 @@ This step mainly includes:
 
 Main outputs of this step are stored in:
 
-* `data/intermediate/step01_QA_Control/`
-* `data/intermediate/step02_grid/`
-* `data/intermediate/step03_Keeling_curve/`
+* `data/Satellite/step01_QA_Control/`
+* `data/Satellite/step02_grid/`
+* `data/Satellite/step03_Keeling_curve/`
 
 ## 5. Run STK reconstruction
 
@@ -57,11 +59,11 @@ Run `src/step02_stk_reconstruction.ipynb` to reconstruct the monthly 0.1° XCO2 
 
 Main output of this step:
 
-* `output/dataset/oco2_xco2_month_2015_2024_stk_SEA.nc`
+* `output/oco2_xco2_month_2015_2024_stk_SEA.nc`
 
 ## 6. Run technical validation
 
-Run `src/step03_technical_validation.ipynb` to evaluate the reconstructed dataset against independent or external reference datasets.
+Run `src/step03_technical_validation.ipynb` to evaluate the reconstructed dataset against reference observations.
 
 This step includes validation against:
 
@@ -71,11 +73,11 @@ This step includes validation against:
 
 Main outputs of this step are stored in:
 
-* `output/validation/`
+* `output/Validation/`
 
-## 7. Run pattern analysis
+## 7. Run spatiotemporal pattern analysis
 
-Run `src/step04_patterns.ipynb` to generate the main figures and statistical summaries of the reconstructed XCO2 dataset.
+Run `src/step04_spatiotemporal_patterns.ipynb` to generate the main figures and statistical summaries of the reconstructed XCO2 dataset.
 
 This step mainly includes:
 
@@ -86,7 +88,6 @@ This step mainly includes:
 Main outputs of this step are stored in:
 
 * `output/trend/`
-* `output/figures/`
 
 ## 8. Recommended execution order
 
@@ -95,7 +96,7 @@ To reproduce the main dataset and results, the notebooks should be run in the fo
 1. `src/step01_data_preprocessing.ipynb`
 2. `src/step02_stk_reconstruction.ipynb`
 3. `src/step03_technical_validation.ipynb`
-4. `src/step04_patterns.ipynb`
+4. `src/step04_spatiotemporal_patterns.ipynb`
 
 ## 9. Notes
 
@@ -103,5 +104,5 @@ Before running the workflow, users may need to update local file paths in the no
 
 Because different computing environments may use different directory structures, some path variables may need to be modified manually.
 
-The final reconstructed dataset and derived outputs are stored in the `output/` directory.
+The final reconstructed dataset, validation outputs, and trend analysis results are stored in the `output/` directory.
 
