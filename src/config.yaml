@@ -1,0 +1,50 @@
+# 项目基本路径 (如果是相对路径，Python 脚本会基于当前位置解析)
+project_root: "/content/drive/MyDrive/Southeast-Asia-XCO2-STK"
+
+# 路径配置
+paths:
+  data:
+    ground_obs: "data/ground_obs"
+    tccon: "data/ground_obs/TCCON"
+    wdcgg: "data/ground_obs/WDCGG"
+    cams: "data/cams"
+    cams_nc: "data/cams/cams_xco2_month_2015_2024_resize.nc"
+  output:
+    validation: "output/Validation"
+    stk_nc: "output/oco2_xco2_month_2015_2024_stk_SEA.nc"
+    trend: "output/trend"
+  gis: "gis"
+  docs: "docs"
+
+# 研究区域矢量文件配置
+regions:
+  "South China": 
+    shp: "South_China.shp"
+    color: "#c96a6a"
+  "Indochinese Peninsula": 
+    shp: "Indochina.shp"
+    color: "#6aae75"
+  "Malay Archipelago": 
+    shp: "Malay_Archipelago.shp"
+    color: "#a8a8a8"
+
+# 城市坐标
+cities:
+  - { en: "Bangkok", lon: 100.5018, lat: 13.7563 }
+  - { en: "Hanoi", lon: 105.8342, lat: 21.0278 }
+  - { en: "Singapore", lon: 103.8198, lat: 1.3521 }
+  - { en: "Guangzhou", lon: 113.27, lat: 23.13 }
+  # ... (其他城市可以继续添加)
+
+# 观测站点
+stations:
+  - { site: "BKT", lon: 100.318, lat: -0.2019, type: "wdcgg", meta: "Mountain Station" }
+  - { site: "HKG", lon: 114.258, lat: 22.2095, type: "wdcgg", meta: "Urban Station" }
+  - { site: "Hefei", lon: 117.17, lat: 31.9, type: "tccon", meta: "Urban Station" }
+  - { site: "Burgos", lon: 120.65, lat: 18.53, type: "tccon", meta: "Coastal Station" }
+
+# 地图标签 (经度, 纬度, 文本, 颜色)
+map_labels:
+  - [114.5, 15, "South China Sea", "dimgray"]
+  - [101, 17, "Indochina Peninsula", "red"]
+  - [118.5, -1.5, "Malay Archipelago", "red"]
