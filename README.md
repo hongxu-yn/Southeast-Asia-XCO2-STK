@@ -125,7 +125,10 @@ Install the required Python packages in **Google Colab** or a Linux environment:
 pip install -q netCDF4 joblib tqdm xarray pykrige gstools scipy
 pip install -q regionmask geopandas geodatasets cartopy
 ```
-
+Alternatively, install all dependencies from the provided requirements file:
+```bash
+pip install -r requirements.txt
+'''
 ### 2. Clone the repository
 
 ```bash
