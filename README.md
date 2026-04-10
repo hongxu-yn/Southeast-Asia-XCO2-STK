@@ -162,9 +162,6 @@ The main notebooks should be run in the following order:
 
 These notebooks can be opened directly in Google Colab using the links above.
 
-Detailed workflow instructions are provided in [`docs/reproducibility.md`](docs/reproducibility.md).
-
-
 Detailed instructions are provided in [`docs/reproducibility.md`](docs/reproducibility.md).
 
 ---
