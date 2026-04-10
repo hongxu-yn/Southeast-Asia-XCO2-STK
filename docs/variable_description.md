@@ -1,78 +1,63 @@
-# Reproducibility
+# Variable description
 
-This document provides a step-by-step guide to reproducing the datasets and analysis results presented in this repository.
+This document describes the main dimensions, coordinates, variables, and metadata of the reconstructed XCO2 dataset provided in this repository.
 
----
+## Dataset file
 
-## 1. Install Dependencies
+- `output/oco2_xco2_month_2015_2024_stk_SEA.nc`
 
-Ensure you have Python installed (preferably version 3.8 or higher). Install the necessary libraries using the provided `requirements.txt` file:
+## Dataset summary
 
-```bash
-pip install -r requirements.txt
-```
+This dataset is a high-resolution monthly XCO2 product reconstructed using a background-constrained local spatiotemporal kriging (STK) method with CAMS background fields.
 
----
+## Dimensions and coordinates
 
-## 2. Prepare Source Data
+### `time`
+- Type: `datetime64[ns]`
+- Size: 120
+- Description: monthly timestamps from January 2015 to December 2024
 
-Due to licensing policies and large file sizes, raw source datasets are not redistributed in this repository. You must download these directly from the official providers.
+### `lat`
+- Type: `float64`
+- Size: 491
+- Unit: degrees north
+- Range: -16.0 to 33.0
+- Description: latitude values on a 0.1° grid
 
-### Required Source Datasets
+### `lon`
+- Type: `float64`
+- Size: 611
+- Unit: degrees east
+- Range: 87.0 to 148.0
+- Description: longitude values on a 0.1° grid
 
-| Dataset | Provider | Access Link |
-| :--- | :--- | :--- |
-| **NASA OCO-2 & OCO-3 Lite** | NASA GES DISC | [Search OCO Data](https://disc.gsfc.nasa.gov/datasets?keywords=OCO-2%20OCO-3%20Lite) |
-| **CAMS GHG Inversion** | Copernicus ADS | [CAMS Global Inversion](https://ads.atmosphere.copernicus.eu/datasets/cams-global-greenhouse-gas-inversion) |
-| **TCCON Observations** | TCCON Archive | [tccondata.org](https://tccondata.org/) |
-| **WDCGG Observations** | WMO / JMA | [WDCGG Search](https://gaw.kishou.go.jp/search) |
+## Data variable
 
-> **Note:** The **Lite** satellite products are recommended as they include essential bias corrections and data screening for $XCO_2$.
+### `xco2`
+- Type: `float32`
+- Dimensions: `(time, lat, lon)`
+- Unit: ppm
+- Description: reconstructed monthly column-averaged dry-air mole fraction of atmospheric carbon dioxide
 
-### Suggested Local Directory Structure
+## Spatial and temporal coverage
 
-To ensure the notebooks run correctly, organize your downloaded data into the following structure:
+- **Longitude**: 87.0°E to 148.0°E
+- **Latitude**: 16.0°S to 33.0°N
+- **Time range**: January 2015 to December 2024
+- **Spatial resolution**: 0.1° × 0.1°
+- **Temporal resolution**: monthly
 
-```text
-data/
-├── cams/
-│   └── raw/
-├── ground_obs/
-│   ├── TCCON/
-│   │   └── raw/
-│   └── WDCGG/
-│       └── raw/
-└── Satellite/
-    └── raw/
-        ├── oco2/
-        └── oco3/
-```
+## Global attributes
 
----
+### `description`
+High-resolution XCO2 reconstructed using STK and CAMS background fields.
 
-## 3. Run the Workflow
+### `creation_date`
+Dataset creation time recorded in the NetCDF metadata.
 
-The analysis is divided into sequential Jupyter notebooks. Please execute them in the following order:
+## Notes
 
-1.  **`src/step01_data_preprocessing.ipynb`**: Cleans and formats raw satellite and ground data.
-2.  **`src/step02_stk_reconstruction.ipynb`**: Performs the spatiotemporal reconstruction of the $XCO_2$ fields.
-3.  **`src/step03_technical_validation.ipynb`**: Compares results against TCCON and WDCGG ground-truth.
-4.  **`src/step04_spatiotemporal_patterns.ipynb`**: Generates final figures and trend analysis.
-
----
-
-## 4. Main Outputs
-
-After completion, the primary results will be generated in the `output/` directory:
-
-*   **Reconstructed Dataset:** `output/oco2_xco2_month_2015_2024_stk_SEA.nc` (NetCDF format)
-*   **Validation Reports:** Found in `output/Validation/`
-*   **Trend Analysis:** Visualizations and stats in `output/trend/`
-
----
-
-## 5. Usage Notes
-
-*   **Data Citations:** Users are required to follow the specific citation and data-use policies of NASA, Copernicus, TCCON, and WDCGG.
-*   **Path Configuration:** If you choose a different directory structure than suggested in Section 2, you must update the `root_path` or data variables at the beginning of each notebook.
-*   **Computational Resources:** The reconstruction step (Step 02) can be memory-intensive; a minimum of 16GB RAM is recommended.
+- The dataset is stored in NetCDF format.
+- The main variable in the current version is `xco2`.
+- Coordinate names are `time`, `lat`, and `lon`.
+- Users should refer to the NetCDF metadata and repository documentation when using the dataset.
