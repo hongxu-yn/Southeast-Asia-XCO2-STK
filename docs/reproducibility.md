@@ -1,4 +1,3 @@
-````markdown
 # Reproducibility
 
 This document describes how to reproduce the main dataset and results provided in this repository.
