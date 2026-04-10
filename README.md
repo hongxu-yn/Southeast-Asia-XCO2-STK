@@ -1,6 +1,4 @@
 # Southeast-Asia-XCO2-STK: Spatio-Temporal Reconstructed Dataset
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step01_Data_Process.ipynb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📌 Project Overview
@@ -107,6 +105,12 @@ Southeast-Asia-XCO2-STK/
 ````
 
 * `src/`: main notebooks for data preprocessing, STK reconstruction, technical validation, and spatiotemporal pattern analysis.
+  ## Open notebooks in Colab
+
+- [Step 1: Data preprocessing](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step01_data_preprocessing.ipynb)
+- [Step 2: STK reconstruction](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step02_stk_reconstruction.ipynb)
+- [Step 3: Technical validation](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step03_technical_validation.ipynb)
+- [Step 4: Spatiotemporal patterns](https://colab.research.google.com/github/hongxu-yn/Southeast-Asia-XCO2-STK/blob/main/src/step04_spatiotemporal_patterns.ipynb)
 * `data/cams/`: CAMS background XCO2 data used in the reconstruction workflow.
 * `data/ground_obs/`: ground-based observations used for validation, including TCCON and WDCGG datasets.
 * `data/Satellite/step01_QA_Control/`: quality-controlled OCO-2 and OCO-3 tabular files.
