@@ -1,0 +1,19 @@
+cff-version: 1.1.0
+message: "If you use this repository or dataset, please cite it as follows."
+title: "Southeast-Asia-XCO2-STK: Spatio-Temporal Reconstructed Dataset"
+type: software
+authors:
+  - family-names: "Xu"
+    given-names: "Hongxu"
+repository-code: "https://github.com/hongxu-yn/Southeast-Asia-XCO2-STK"
+url: "https://github.com/hongxu-yn/Southeast-Asia-XCO2-STK"
+abstract: "A repository for reconstructing a seamless monthly 0.1° XCO2 dataset over South China and Southeast Asia using OCO-2/3 observations, CAMS background fields, and adaptive local spatio-temporal kriging."
+keywords:
+  - XCO2
+  - OCO-2
+  - OCO-3
+  - CAMS
+  - spatiotemporal kriging
+  - Southeast Asia
+  - South China
+license: "MIT"
