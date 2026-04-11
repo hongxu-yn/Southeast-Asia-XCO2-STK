@@ -66,6 +66,8 @@ High-precision global surface CO2 observations from WDCGG were used to provide s
 ### Figure 1. Study area
 <img src="docs/location.png" width="600" alt="Study Area">
 
+### Figure 2. Workflow
+<img src="docs/workflow.png" width="800" alt="Workflow">
 
 ---
 
@@ -180,7 +182,7 @@ The reconstructed dataset was evaluated against independent **TCCON** observatio
 * **Burgos**: $R^2 = 0.981, RMSE = 0.69\ \mathrm{ppm}$
 * **Hefei**: $R^2 = 0.981, RMSE = 1.27\ \mathrm{ppm}$
   
-<img src="docs/validation_tccon_cams_stk.png" width="300" alt="Validation against TCCON observations">
+<img src="docs/validation_tccon_cams_stk.png" width="600" alt="Validation against TCCON observations">
 Comparison of CAMS and STK-reconstructed XCO2 against TCCON observations at the Burgos and Hefei sites.
 
 Additional validation against OCO-3 and WDCGG is also included in the repository outputs.
