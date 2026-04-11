@@ -67,8 +67,7 @@ High-precision global surface CO2 observations from WDCGG were used to provide s
 <img src="docs/location.png" width="600" alt="Study Area">
 
 ### Figure 2. Workflow
-<img src="docs/workflow.png" width="600" alt="Workflow">
-
+<img src="docs/workflow.png" width="800" alt="Workflow">
 ---
 
 ## 📂 Project Structure
