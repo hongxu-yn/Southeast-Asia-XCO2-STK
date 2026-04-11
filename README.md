@@ -1,4 +1,4 @@
-# Southeast-Asia-XCO2-STK: Spatio-Temporal Reconstructed Dataset
+# A seamless monthly 0.1° XCO2 dataset over South China and Southeast Asia based on OCO-2 and CAMS data (2015–2024)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📌 Project Overview
